@@ -5,10 +5,14 @@ const height = 400;
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
 
-/* Make the colours accessible globally */
+// Make the colours accessible globally
 const barColor = "#606464";
 const bodyBackgroundColor = "#fffaf0";
 
 // set up the scales
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
+
+// create a bin generator using d3.bin
+const binGenerator = d3.bin()
+    .value(d => d.energyConsumption)
