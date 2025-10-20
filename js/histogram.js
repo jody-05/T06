@@ -6,7 +6,7 @@ const drawHistogram = (data) => {
 
     // create an inner chart group with margins
     const innerChart = svg.append("g")
-        .attr("transfrom", `translate(${margin.left},${margin.top})`);
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
     // generate the bins
     const bins = binGenerator(data);
