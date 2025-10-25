@@ -13,6 +13,9 @@ d3.csv("data/Ex6_TVdata.csv", d => ({
     drawScatterPlot(data);
     populateFilters(data);
 
+    createTooltip();
+    handleMouseEvents();
+
 }).catch(error => {
     console.error("Error loading the CSV file:", error);
 });

@@ -62,6 +62,7 @@ const drawScatterPlot = (data) => {
         .attr('class', 'legend')
         .attr('transform', `translate(${width - 140}, ${margin.top})`);
 
+    const uniqueTechs = Array.from(new Set(data.map(d => d.screenTech)));
     uniqueTechs.forEach((tech, i) => {
         const g = legend.append('g').attr('transform', `translate(0, ${i * 22})`);
         g.append('rect')
