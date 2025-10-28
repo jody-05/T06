@@ -8,18 +8,14 @@ const drawHistogram = (data) => {
     const innerChart = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // generate the bins
+    const maxEng = d3.max(data, d => d.energyConsumption);
+    binGenerator.domain([0, maxEng]);
     const bins = binGenerator(data);
-
-    console.log(bins);
-
-    const minEng = bins[0].x0;  // lower bound of the first bin
-    const maxEng = bins[bins.length - 1].x1; // upper bound of the last bin
     const binsMaxLength = d3.max(bins, d => d.length);  // get the maximum length of the bins
-
+    
     // define scales (from shared constants)
     xScale
-        .domain([minEng, maxEng])
+        .domain([0, maxEng])
         .range([0, innerWidth]);
 
     yScale
@@ -46,6 +42,7 @@ const drawHistogram = (data) => {
     // add the x-axis to the bottom of the chart relative to the inner chart
     innerChart
         .append("g")
+        .attr("class", "x-axis")
         .attr("transform", `translate(0, ${innerHeight})`)
         .call(bottomAxis);
 
@@ -63,6 +60,7 @@ const drawHistogram = (data) => {
     // add the y-axis to the bottom of the chart relative to the inner chart
     innerChart
         .append("g")
+        .attr("class", "y-axis")
         .call(leftAxis);
 
     svg

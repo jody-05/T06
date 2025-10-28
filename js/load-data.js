@@ -1,4 +1,4 @@
-// Load the VSC file with a row conversion function
+// Load the CSV file with a row conversion function
 d3.csv("data/Ex6_TVdata.csv", d => ({
     brand: d.brand,
     model: d.model,

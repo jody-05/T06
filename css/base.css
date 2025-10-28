@@ -1,3 +1,9 @@
+:root {
+    --accent: #e67e22;       /* orange (default) */
+    --accent-dark: #bf6516;  /* darker orange for links or hover */
+    --text: #3f2f28;         /* dark brown text color */
+}
+
 /* Main site stylesheet use classes so we can toggle active state */
 #filters_screen .filter{
     border: none;
@@ -8,6 +14,7 @@
     cursor:pointer;
     font-weight:600;
     box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+    margin-right:8px;
 }
 
 /* Active filter: pale background, dark text */
@@ -28,12 +35,13 @@
 }
 
 /* Data source note */
-.body{ 
+body{ 
     margin-top:10px; 
     color:#3f2f28; 
+    background-color: #fffaf0;
 }
 
-.body a{ 
+body a{ 
     color:var(--accent-dark); 
     font-weight:600; 
 }
